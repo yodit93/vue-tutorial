@@ -6,6 +6,16 @@
     <title>Vue-tutorial</title>
 </head>
 <body>
+    <style>
+        .box {
+            padding: 100px 0;
+            width: 400px;
+            text-align: center;
+            background: #ddd;
+            margin: 20px;
+            display: inline-block;
+        }
+    </style>
     <div id="app">
        <!-- conditional rendering -->
        <!-- evaluates the value of showBooks and if it is true it render the template -->
@@ -21,8 +31,13 @@
        <!-- v-show alternative for v-if but here it uses css to show and hide element-->
        <!-- not like v-if which completely remove the element from the DOM and injects it again when it is true -->
        <div v-show="showBooks">showing books</div>
+       <!-- mouse event -->
+       <div class="box" @mouseover="handleEvent($event, 5)">mouseover</div>
+       <div class="box" @mouseleave="handleEvent">mouseleave</div>
+       <div class="box" @dblclick="handleEvent">double click</div>
+       <div class="box" @mousemove="handleMove">position-{{x}} {{y}}</div> 
     </div>
     
-   <script src="app.js"></script> 
+   <script src="app.js"></script>  
 </body>
 </html>
