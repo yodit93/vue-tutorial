@@ -8,7 +8,16 @@
 <body>
     <div id="app">
         <!-- {{title}}, {{author}} and {{age}} are dynamic values and only accessed inside the app component -->
-        <p>{{title}}-{{author}}-{{age}}</p>    
+        <p>{{title}}-{{author}}-{{age}}</p>
+        <!-- there are two ways to increase the age from the component and from the template too -->
+        <!-- using template  -->
+        <button v-on:click="age++">Increase age</button>   
+        <button v-on:click="age--">Decrease age</button>
+        <!-- we can use @ symbol instead of 'v-on:'' -->
+        <!-- <div @click="title = 'something'">change title</div>  -->
+       <!-- using component -->
+       <div @click="changeTitle('title')">change</div>
+       
     </div>
     
    <script src="app.js"></script> 
