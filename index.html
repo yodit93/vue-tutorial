@@ -7,17 +7,20 @@
 </head>
 <body>
     <div id="app">
-        <!-- {{title}}, {{author}} and {{age}} are dynamic values and only accessed inside the app component -->
+       <!-- conditional rendering -->
+       <!-- evaluates the value of showBooks and if it is true it render the template -->
+      <div v-if="showBooks">
         <p>{{title}}-{{author}}-{{age}}</p>
-        <!-- there are two ways to increase the age from the component and from the template too -->
-        <!-- using template  -->
-        <button v-on:click="age++">Increase age</button>   
-        <button v-on:click="age--">Decrease age</button>
-        <!-- we can use @ symbol instead of 'v-on:'' -->
-        <!-- <div @click="title = 'something'">change title</div>  -->
-       <!-- using component -->
-       <div @click="changeTitle('title')">change</div>
-       
+      </div>
+       <button @click="toggleShowBooks">
+        <span v-show="showBooks">Hide books</span>
+        <!-- <span v-if="!showBooks">show books</span> -->
+        <!-- or we can use v-else instead of using two v-if -->
+        <span v-else>show books</span>
+       </button>
+       <!-- v-show alternative for v-if but here it uses css to show and hide element-->
+       <!-- not like v-if which completely remove the element from the DOM and injects it again when it is true -->
+       <div v-show="showBooks">showing books</div>
     </div>
     
    <script src="app.js"></script> 

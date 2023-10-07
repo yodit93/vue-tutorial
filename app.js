@@ -2,6 +2,7 @@ const app = Vue.createApp({
 //    data function in Vue object that creates a variable and accessebile in template
     data() {
         return {
+            showBooks: true,
             title: "Hello Vue.js",
             author: "Yodit",
             age: 31
@@ -9,9 +10,8 @@ const app = Vue.createApp({
     },
     // component method using method property, any method should be placed here
     methods: {
-        changeTitle (title) {
-            // this references the component itself
-           this.title = title
+        toggleShowBooks() {
+            this.showBooks = !this.showBooks
         }
     }
 })
